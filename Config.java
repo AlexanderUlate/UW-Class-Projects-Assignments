@@ -1,78 +1,73 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 
-
-/**
- * This class contains the constants used in the Soko-Ban program. These constants may be changed
- * when testing. So, your program should use the constants, not the values.
- * 
- * @author Marc Renault
- */
 public class Config {
 
     /**
-     * Character values for displaying the different statuses of the game board cells.
+     * A set of caves to search through.  The first one is provided.
+     * TODO add at least 2 more caves.
      */
-    public static final char EMPTY_CHAR = ' '; // Empty character
-    public static final char BOX_CHAR = '$'; // Box character
-    public static final char WALL_CHAR   = '#'; // Wall character
-    public static final char WORKER_CHAR  = '@'; // Worker character
-    public static final char GOAL_CHAR  = '.'; // Worker character
-    public static final char BOX_GOAL_CHAR  = '*'; // Box on a goal character
-    public static final char WORK_GOAL_CHAR  = '+'; // Worker on a goal character
-
-    /**
-     * Initial configuration of the levels. 
-     * Note that we are using the actual characters to make it easier to visualize the initial
-     * configurations, but it would be better to use the character constants defined above.
-     */
-    public static final ArrayList<char[][]> LEVELS = new ArrayList<>(Arrays.asList(
-        new char[][]{
-            //{' ', ' ', ' ', ' ', ' '},
-            //{' ', ' ', ' ', ' ', ' '},
-            //{' ', ' ', ' ', '=', ' '},
-            //{' ', ' ', ' ', ' ', ' '},
-            //{' ', ' ', ' ', ' ', '@'}
-            {EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR},
-            {EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR},
-            {EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, BOX_CHAR, EMPTY_CHAR},
-            {EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR},
-            {EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, WORKER_CHAR}
-
+	public static final char[][][] CAVES= new char[][][] {
+	    { 
+    		{ ' ', ' ', ' ', ' ', ' ' }, 
+    		{ ' ', 'b', ' ', 'p', ' ' }, 
+    		{ ' ', 'p', 'w', ' ', ' ' },
+    		{ ' ', ' ', 'b', ' ', ' ' }, 
+    		{ ' ', ' ', ' ', 'b', 'p' } 
+    	},
+	    { 
+            { 'b', ' ', 'b', ' ', 'b' }, 
+            { ' ', ' ', ' ', 'p', ' ' }, 
+            { ' ', 'p', ' ', ' ', ' ' },
+            { 'w', ' ', ' ', ' ', 'p' }, 
+            { ' ', ' ', ' ', ' ', ' ' } 
         },
-        new char[][]{
-            //{' ', ' ', ' ', '#', ' ', ' ', ' '},
-            //{' ', ' ', ' ', '#', '=', ' ', ' '},
-            //{' ', '#', '#', '#', ' ', ' ', '='},
-            //{' ', '#', ' ', ' ', '=', ' ', '=', ' '},
-            //{'#', '#', ' ', '#', ' ', '#', '#', ' ', '#', ' ', ' ', ' ', '#', '#', '#', '#', '#'},
-            //{' ', ' ', ' ', '#', ' ', '#', '#', ' ', '#', '#', '#', '#', '#', ' ', ' ', ' ', ' '},
-            //{' ', '=', ' ', ' ', '=', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-            //{'#', '#', '#', '#', ' ', '#', '#', '#', ' ', '#', '@', '#', '#', ' ', ' ', ' ', ' '},
-            //{' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', '#', '#', '#', '#', '#', '#', '#'}
-            {EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, WALL_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR},
-            {EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, WALL_CHAR, BOX_CHAR, EMPTY_CHAR, EMPTY_CHAR},
-            {EMPTY_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, EMPTY_CHAR, EMPTY_CHAR, BOX_CHAR},
-            {EMPTY_CHAR, WALL_CHAR, EMPTY_CHAR, EMPTY_CHAR, BOX_CHAR, EMPTY_CHAR, BOX_CHAR, EMPTY_CHAR},
-            {WALL_CHAR, WALL_CHAR, EMPTY_CHAR, WALL_CHAR, EMPTY_CHAR, WALL_CHAR, WALL_CHAR, EMPTY_CHAR, WALL_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR},
-            {EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, WALL_CHAR, EMPTY_CHAR, WALL_CHAR, WALL_CHAR, EMPTY_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR},
-            {EMPTY_CHAR, BOX_CHAR, EMPTY_CHAR, EMPTY_CHAR, BOX_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR},
-            {WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, EMPTY_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, EMPTY_CHAR, WALL_CHAR, WORKER_CHAR, WALL_CHAR, WALL_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR},
-            {EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, WALL_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, EMPTY_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR, WALL_CHAR}
-
+	    { 
+            { ' ', ' ', 'p', ' ', 'b' }, 
+            { ' ', ' ', ' ', 'p', ' ' }, 
+            { ' ', 'p', ' ', ' ', 'p' },
+            { ' ', ' ', ' ', 'w', ' ' }, 
+            { ' ', 'b', ' ', 'b', ' ' }, 
+            { ' ', ' ', ' ', ' ', 'p' }
         }
-                                                                                   ));
+	};
 
-    public static final ArrayList<int[]> GOALS
-        = new ArrayList<>(Arrays.asList(new int[]{2,2}, new int[]{5, 15, 6, 15, 7, 15, 5, 16, 6, 16, 7, 16}));
+	/**
+	 * The methods in WumpusCaves should refer to these constants,
+	 * e.g., Config.PIT, and not the literals themselves.
+	 */
+	public static final char PIT = 'p';
+	public static final char WUMPUS = 'w';
+	public static final char BAT = 'b';
+	public static final String GRAB_EQUIPMENT = "g";
+	
+	
+	/**
+	 * The number of perceptions and the indexes in a perceptions
+	 * array.
+	 */
+	public static final int NUM_PERCEPTIONS = 3;
+	public static final int PERCEIVE_PIT = 0;
+	public static final int PERCEIVE_BAT = 1;
+	public static final int PERCEIVE_CHILD = 2;
+	
+	/**
+	 * indices for location arrays
+	 */
+	public static final int RESCUE_LOCATION = 0;
+	public static final int CHILD_LOCATION = 1;
+	public static final int X_DIRECTION = 1;
+	public static final int Y_DIRECTION = 0;
+	public static final int DIRECTION_MAX = 0;
+	public static final int X_COORDINATE = 0;
+	public static final int Y_COORDINATE = 1;
+	
+    /**
+     * Random number generator SEED. Passed to the random number generator
+     * to get repeatable random numbers which can aid with debugging.
+     */
+    public static final int SEED = 123;
 
-    public static final char UP_CHAR = '8';
-    public static final char DOWN_CHAR = '2';
-    public static final char LEFT_CHAR = '4';
-    public static final char RIGHT_CHAR = '6';
-    public static final char QUIT_CHAR = 'q';
-    //public static final char HELP_CHAR = '?';
-    //public static final char SAVE_MOVES_CHAR = 's';
-    //public static final char LOAD_MOVES_CHAR = 'l';
+
+
+
+
 }
-
